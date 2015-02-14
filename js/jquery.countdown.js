@@ -179,7 +179,7 @@ var formatCompute = function(d, options) {
 	m: d.getUTCMinutes(),
 	s: d.getUTCSeconds()
       };
-      return format.replace(/(dd|hh|mm|ss)/g, function($0, form) {
+      return format.replace(/(d+|hh|mm|ss)/g, function($0, form) {
 	      return pad(parse[form[0]]);
       });
 };
