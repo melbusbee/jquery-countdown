@@ -179,13 +179,13 @@ var formatCompute = function(d, options) {
 	m: d.getUTCMinutes(),
 	s: d.getUTCSeconds()
       };
-      return format.replace(/(dd|hh|mm|ss)/g, function($0, form) {
+      return format.replace(/(d+|hh|mm|ss)/g, function($0, form) {
 	      return pad(parse[form[0]]);
       });
 };
 
 // add leading zeros
-var pad = function(x){return (1e15+""+x).slice(-2)};
+var pad = function(x){return (("" + x).length == 1) ? (1e15 + "" + x).slice(-2) : x;};
 
 var digits = [];
 var intervals = [];
